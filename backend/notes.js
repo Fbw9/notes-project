@@ -1,8 +1,9 @@
 const fs = require('fs');
+const NOTES_STORAGE = 'notes.json';
 
 const fetchNotes = () => {
     try {
-        const noteString = fs.readFileSync('notes-real.json')
+        const noteString = fs.readFileSync('NOTES_STORAGE')
         return JSON.parse(noteString);
     } catch (e) {
         return []
@@ -10,7 +11,7 @@ const fetchNotes = () => {
 };
 
 const saveNotes = notes => {
-    fs.writeFileSync('notes-real.json', JSON.stringify(notes))
+    fs.writeFileSync('notes.json', JSON.stringify(notes))
 
 };
 const addNote = (title, body) => {
